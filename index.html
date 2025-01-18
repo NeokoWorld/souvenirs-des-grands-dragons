@@ -3,26 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Affichage SVG</title>
+    <title>SVG Navigable</title>
     <style>
         body {
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
             background-color: #f4f4f4;
             font-family: Arial, sans-serif;
+            overflow: hidden; /* Empêche de scroller le body lui-même */
         }
 
-        object {
-            max-width: 90%;
-            max-height: 90%;
+        .svg-container {
+            width: 100vw; /* Largeur de l'écran */
+            height: 100vh; /* Hauteur de l'écran */
+            overflow: auto; /* Permet le défilement si nécessaire */
             border: 1px solid #ccc;
+            position: relative;
+            background-color: #ffffff;
+        }
+
+        .svg-container object {
+            width: 200%; /* Taille plus grande que le conteneur pour simuler un zoom */
+            height: 200%; /* Ajustez selon les dimensions du SVG */
         }
     </style>
 </head>
 <body>
-    <object type="image/svg+xml" data="political.svg">Ton navigateur ne supporte pas les SVG</object>
+    <div class="svg-container">
+        <object type="image/svg+xml" data="political.svg">Ton navigateur ne supporte pas les SVG</object>
+    </div>
 </body>
 </html>
