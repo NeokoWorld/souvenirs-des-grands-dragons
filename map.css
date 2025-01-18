@@ -51,7 +51,7 @@ main {
     justify-content: center;
     align-items: center;
     min-height: calc(100vh - 160px); /* Ajuste la hauteur totale pour tenir compte du header et du footer */
-    padding: 80px 20px 20px; /* Laisse un espace sous le header (80px pour correspondre à sa hauteur) */
+    padding: 60px 20px 20px; /* Laisse un espace sous le header (80px pour correspondre à sa hauteur) */
     box-sizing: border-box;
 }
 
