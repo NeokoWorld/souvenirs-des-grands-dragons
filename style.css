@@ -55,7 +55,12 @@ header nav ul li a:hover {
 
 main {
     flex: 1;
-    padding: 5rem 2rem 2rem;
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    min-height: calc(100vh - 160px); /* Hauteur de l'écran moins la hauteur combinée du header et footer */
+    padding: 20px 0;
+    box-sizing: border-box;
 }
 
 footer {
@@ -65,6 +70,7 @@ footer {
     padding: 1rem;
     position: sticky;
     bottom: 0;
+    margin-top: 20px;
 }
 
 /* Boutons globaux */
@@ -154,13 +160,11 @@ body {
     color: #fff;
 }
 
-/* Div transparente autour des éléments du main */
 .main-container {
     background-color: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
-    margin: 20px auto; /* Centrer verticalement et horizontalement */
     padding: 20px;
     border-radius: 10px; /* Coins arrondis */
-    max-width: 80%; /* Réduit la largeur totale */
+    max-width: 80%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre légère */
 }
 
