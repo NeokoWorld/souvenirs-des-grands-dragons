@@ -24,15 +24,17 @@
 
 /* Carte */
 .map-container {
-    flex: 1; /* Prend tout l'espace restant */
+    flex: 1; /* Occupe tout l'espace restant */
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    overflow: hidden;
-    min-height: 400px; /* Minimum pour éviter l'écrasement */
+    overflow: hidden; /* Cache les débordements */
+    min-height: 400px; /* Préserve une taille minimale */
+    max-height: 80vh; /* Limite la hauteur à 80% de la fenêtre */
+    padding: 10px; /* Évite que le contenu touche directement les bords */
 }
 
 /* Fixe la position du footer */
@@ -84,4 +86,13 @@ footer {
         width: 100%;
         max-width: none;
     }
+}
+
+.map {
+    width: 100%; /* Ajuste la largeur au conteneur */
+    height: auto; /* Conserve le ratio d'aspect */
+    max-height: 100%; /* Empêche le débordement vertical */
+    max-width: 100%; /* Empêche le débordement horizontal */
+    border-radius: 10px; /* Ajout pour harmoniser avec le conteneur */
+    object-fit: contain; /* Force l'ajustement de l'image dans le conteneur */
 }
