@@ -142,3 +142,32 @@ header nav ul.show {
         display: flex; /* Affiché uniquement en mode "show" */
     }
 }
+/* Image de fond pour tout le site */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1499949059451-9a1119d4e912');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    color: #fff;
+}
+
+/* Div transparente autour des éléments du main */
+.main-container {
+    background-color: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
+    margin: 20px auto; /* Centrer verticalement et horizontalement */
+    padding: 20px;
+    border-radius: 10px; /* Coins arrondis */
+    max-width: 80%; /* Réduit la largeur totale */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre légère */
+}
+
+/* Gestion des marges pour les petits écrans */
+@media (max-width: 768px) {
+    .main-container {
+        max-width: 90%; /* Réduire les marges sur mobile */
+        padding: 15px;
+    }
+}
