@@ -27,24 +27,20 @@
         <div class="container">
             <aside class="sidebar">
                 <h2>Filtres</h2>
-                <button>Vue topographique</button>
-                <button>Vue des pays</button>
-                <button>Vue des provinces</button>
-                <h3>Points d'intérêt</h3>
-                <input type="checkbox" id="sacred" name="filter" value="sacred">
-                <label for="sacred">Lieux sacrés</label><br>
-                <input type="checkbox" id="caves" name="filter" value="caves">
-                <label for="caves">Grottes</label><br>
-            </aside>
+                <button data-src="data/topography.svg">Vue topographique</button>
+                <button data-src="data/political.svg">Vue des pays</button>
+                <button data-src="data/provinces.svg">Vue des provinces</button>
+                <button data-src="data/cultural.svg">Vue culturelle</button>
+                <button data-src="data/biomes.svg">Vue des biomes</button>
+            </aside>            
             <section class="map-container">
-                <object type="image/svg+xml" data="data/political.svg" class="map">
-                    Ton navigateur ne supporte pas les SVG.
-                </object>
-            </section>
+                <iframe src="data/political.svg" class="map draggable-map" title="Carte interactive"></iframe>
+            </section>                     
         </div>
     </main>
     <footer>
         <p>&copy; 2025 Elkant | Créé par Serafins. Tous droits réservés.</p>
     </footer>
+    <script src="map.js" defer></script>
 </body>
 </html>

@@ -3,16 +3,16 @@
     display: flex;
     flex-direction: row; /* Barre latérale et carte côte à côte */
     justify-content: space-between;
-    align-items: stretch; /* Alignement vertical uniforme */
-    height: 100%; /* Prend tout l'espace restant */
-    gap: 20px;
-    padding: 20px;
+    align-items: stretch; /* Uniforme en hauteur */
+    height: calc(100vh - 120px); /* Hauteur totale moins l'espace occupé par le header et le footer */
+    gap: 5px; /* Ajoute de l'espace entre les éléments */
+    padding: 60px 20px 0px 20px;
     box-sizing: border-box;
 }
 
 /* Barre latérale */
 .sidebar {
-    flex: 0 0 25%; /* 25% de la largeur */
+    flex: 0 0 25%; /* Fixe la largeur à 25% */
     max-width: 300px;
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
@@ -25,16 +25,22 @@
 /* Carte */
 .map-container {
     flex: 1; /* Occupe tout l'espace restant */
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, 0.6);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    overflow: hidden; /* Cache les débordements */
-    min-height: 400px; /* Préserve une taille minimale */
-    max-height: 80vh; /* Limite la hauteur à 80% de la fenêtre */
-    padding: 10px; /* Évite que le contenu touche directement les bords */
+    overflow: hidden;
+}
+
+/* iFrame */
+.map-container iframe {
+    width: 100%; /* Remplit le conteneur horizontalement */
+    height: 100%; /* Remplit le conteneur verticalement */
+    border: none; /* Supprime les bordures */
+    border-radius: 10px; /* Harmonise avec la mise en page */
 }
 
 /* Fixe la position du footer */
@@ -48,21 +54,20 @@ body {
 main {
     flex: 1;
     display: flex;
+    flex-direction: column; /* Assure une bonne structure en cas de modifications */
     justify-content: center;
-    align-items: center;
-    min-height: calc(100vh - 160px); /* Ajuste la hauteur totale pour tenir compte du header et du footer */
-    padding: 60px 20px 20px; /* Laisse un espace sous le header (80px pour correspondre à sa hauteur) */
+    align-items: stretch;
     box-sizing: border-box;
 }
 
-
+/* Footer */
 footer {
     text-align: center;
-    padding: 10px 20px;
     background-color: #333;
     color: #fff;
     font-size: 0.9rem;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+    padding: 10px 0;
 }
 
 /* Boutons harmonisés */
@@ -93,13 +98,4 @@ footer {
         width: 100%;
         max-width: none;
     }
-}
-
-.map {
-    width: 100%; /* Ajuste la largeur au conteneur */
-    height: auto; /* Conserve le ratio d'aspect */
-    max-height: 100%; /* Empêche le débordement vertical */
-    max-width: 100%; /* Empêche le débordement horizontal */
-    border-radius: 10px; /* Ajout pour harmoniser avec le conteneur */
-    object-fit: contain; /* Force l'ajustement de l'image dans le conteneur */
 }
