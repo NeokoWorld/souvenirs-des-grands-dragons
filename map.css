@@ -6,18 +6,19 @@
     width: 100%;
     padding: 20px;
     box-sizing: border-box;
+    gap: 20px; /* Espace entre la barre latérale et la carte */
 }
 
 /* Barre latérale */
 .sidebar {
-    width: 25%; /* Largeur relative de la barre latérale */
+    flex: 0 0 25%; /* Fixe la barre latérale à 25% de largeur */
     max-width: 300px;
     background-color: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
     padding: 20px;
-    margin-right: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre légère */
     color: #fff;
+    overflow-y: auto; /* Ajoute une barre de défilement si le contenu dépasse */
 }
 
 .sidebar h2 {
@@ -41,18 +42,19 @@
     justify-content: center; /* Centre horizontalement */
     align-items: center; /* Centre verticalement */
     overflow: hidden; /* Coupe le débordement */
+    min-height: 300px; /* Ajoute une hauteur minimale pour éviter les écrasements */
 }
 
 /* Responsive pour petits écrans */
 @media (max-width: 768px) {
     .map-container {
         flex-direction: column; /* Empile la barre latérale et la carte */
-        height: auto; /* Adapte la hauteur automatiquement */
+        gap: 20px; /* Ajoute un espace entre les éléments empilés */
     }
 
     .sidebar {
-        width: 100%;
-        margin-right: 0;
-        margin-bottom: 20px;
+        flex: 0 0 auto; /* Permet à la barre latérale de s'adapter à son contenu */
+        width: 100%; /* Prend toute la largeur */
+        max-width: none; /* Supprime la limite de largeur */
     }
 }
