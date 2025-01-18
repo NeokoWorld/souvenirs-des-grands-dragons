@@ -1,60 +1,69 @@
-/* Mise en page spécifique à la page de la carte */
-.map-container {
+/* Disposition principale pour la carte */
+.container {
     display: flex;
-    flex-direction: row; /* Barre latérale à gauche et carte à droite */
-    height: calc(100vh - 160px); /* Hauteur totale moins header et footer */
-    width: 100%;
+    flex-direction: row; /* Barre latérale et carte côte à côte */
+    justify-content: space-between;
+    align-items: stretch; /* Aligne les éléments à la même hauteur */
+    height: calc(100vh - 160px); /* Prend toute la hauteur disponible moins header/footer */
+    width: 100%; /* Étend la largeur */
+    gap: 20px; /* Espacement entre la barre latérale et la carte */
     padding: 20px;
     box-sizing: border-box;
-    gap: 20px; /* Espace entre la barre latérale et la carte */
 }
 
 /* Barre latérale */
 .sidebar {
-    flex: 0 0 25%; /* Fixe la barre latérale à 25% de largeur */
-    max-width: 300px;
+    flex: 0 0 25%; /* 25% de la largeur du conteneur */
+    max-width: 300px; /* Limite la largeur maximale */
     background-color: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre légère */
+    border-radius: 10px; /* Coins arrondis */
     color: #fff;
-    overflow-y: auto; /* Ajoute une barre de défilement si le contenu dépasse */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre légère */
+    overflow-y: auto; /* Barre de défilement verticale si nécessaire */
 }
 
-.sidebar h2 {
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+/* Carte */
+.map-container {
+    flex: 1; /* Occupe tout l'espace restant */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre légère */
+    overflow: hidden;
+    min-height: 400px; /* Empêche l'écrasement vertical */
+}
+
+/* Boutons */
+.sidebar button {
+    display: block;
+    width: 100%; /* Les boutons occupent toute la largeur */
+    margin: 10px 0;
+    padding: 0.7rem 1rem;
+    font-size: 1rem;
+    background-color: #5a5aac;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
     text-align: center;
 }
 
-.sidebar button {
-    width: 100%;
-    margin: 10px 0;
+.sidebar button:hover {
+    background-color: #49499c;
 }
 
-/* Carte interactive */
-.map {
-    flex: 1; /* Prend tout l'espace restant */
-    background-color: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre légère */
-    display: flex;
-    justify-content: center; /* Centre horizontalement */
-    align-items: center; /* Centre verticalement */
-    overflow: hidden; /* Coupe le débordement */
-    min-height: 300px; /* Ajoute une hauteur minimale pour éviter les écrasements */
-}
-
-/* Responsive pour petits écrans */
+/* Responsive */
 @media (max-width: 768px) {
-    .map-container {
+    .container {
         flex-direction: column; /* Empile la barre latérale et la carte */
-        gap: 20px; /* Ajoute un espace entre les éléments empilés */
     }
 
     .sidebar {
-        flex: 0 0 auto; /* Permet à la barre latérale de s'adapter à son contenu */
-        width: 100%; /* Prend toute la largeur */
-        max-width: none; /* Supprime la limite de largeur */
+        flex: 0 0 auto; /* Ajustement pour contenu dynamique */
+        width: 100%; /* Barre latérale prend toute la largeur */
+        max-width: none;
     }
 }

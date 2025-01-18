@@ -24,26 +24,27 @@
         </div>
     </header>
     <main>
-        <div class="container">
-            <aside class="sidebar">
-                <h2>Filtres</h2>
-                <button>Vue topographique</button>
-                <button>Vue des pays</button>
-                <button>Vue des provinces</button>
-                <h3>Points d'intérêt</h3>
-                <input type="checkbox" id="sacred" name="filter" value="sacred">
-                <label for="sacred">Lieux sacrés</label><br>
-                <input type="checkbox" id="caves" name="filter" value="caves">
-                <label for="caves">Grottes</label><br>
-                <!-- Ajoute d'autres contrôles au besoin -->
-            </aside>
-            <section class="map-container">
-                <object type="image/svg+xml" data="data/political.svg" class="map">
-                    Ton navigateur ne supporte pas les SVG.
-                </object>
-            </section>
-        </div>
-    </main>
+        <main>
+            <div class="container">
+                <aside class="sidebar">
+                    <h2>Filtres</h2>
+                    <button>Vue topographique</button>
+                    <button>Vue des pays</button>
+                    <button>Vue des provinces</button>
+                    <h3>Points d'intérêt</h3>
+                    <input type="checkbox" id="sacred" name="filter" value="sacred">
+                    <label for="sacred">Lieux sacrés</label><br>
+                    <input type="checkbox" id="caves" name="filter" value="caves">
+                    <label for="caves">Grottes</label><br>
+                </aside>
+                <div class="map-container">
+                    <object type="image/svg+xml" data="data/political.svg" class="map">
+                        Ton navigateur ne supporte pas les SVG.
+                    </object>
+                </div>
+            </div>
+        </main>
+        
     <footer>
         <p>&copy; 2025 Elkant | Créé par Serafins. Tous droits réservés.</p>
     </footer>
