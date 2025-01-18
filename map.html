@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carte interactive - Elkant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="map.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="map.html" class="active">Carte interactive</a>
+            <!-- Ajoute d'autres liens ici -->
+        </nav>
+    </header>
+    <main>
+        <div id="map-container">
+            <div id="map-viewport">
+                <object id="svg-map" type="image/svg+xml" data="data/political.svg">  
+                    Votre navigateur ne supporte pas les SVG.  
+                </object>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 Serafins - Univers d'Elkant</p>
+    </footer>
+    <script src="map.js"></script>
+</body>
+</html>
