@@ -35,5 +35,38 @@
     <div class="svg-container">
         <object type="image/svg+xml" data="political.svg">Ton navigateur ne supporte pas les SVG</object>
     </div>
+    <script>
+        const container = document.querySelector('.svg-container');
+        let isDragging = false;
+        let startX, startY, scrollLeft, scrollTop;
+    
+        container.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            startX = e.pageX - container.offsetLeft;
+            startY = e.pageY - container.offsetTop;
+            scrollLeft = container.scrollLeft;
+            scrollTop = container.scrollTop;
+        });
+    
+        container.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            e.preventDefault();
+            const x = e.pageX - container.offsetLeft;
+            const y = e.pageY - container.offsetTop;
+            const walkX = x - startX;
+            const walkY = y - startY;
+            container.scrollLeft = scrollLeft - walkX;
+            container.scrollTop = scrollTop - walkY;
+        });
+    
+        container.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+    
+        container.addEventListener('mouseleave', () => {
+            isDragging = false;
+        });
+    </script>
+    
 </body>
 </html>
