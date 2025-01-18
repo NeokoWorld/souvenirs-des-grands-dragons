@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,24 +9,43 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a href="index.html">Accueil</a>
-            <a href="map.html" class="active">Carte interactive</a>
-            <!-- Ajoute d'autres liens ici -->
-        </nav>
+        <div class="menu">
+            <h1>Elkant</h1>
+            <button class="menu-toggle" aria-label="Menu">&#9776;</button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="map.html">Carte</a></li>
+                    <li><a href="nations.html">Nations</a></li>
+                    <li><a href="cultures.html">Cultures</a></li>
+                    <li><a href="races.html">Races</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <main>
-        <div id="map-container">
-            <div id="map-viewport">
-                <object id="svg-map" type="image/svg+xml" data="data/political.svg">  
-                    Votre navigateur ne supporte pas les SVG.  
+        <div class="container">
+            <aside class="sidebar">
+                <h2>Filtres</h2>
+                <button>Vue topographique</button>
+                <button>Vue des pays</button>
+                <button>Vue des provinces</button>
+                <h3>Points d'intérêt</h3>
+                <input type="checkbox" id="sacred" name="filter" value="sacred">
+                <label for="sacred">Lieux sacrés</label><br>
+                <input type="checkbox" id="caves" name="filter" value="caves">
+                <label for="caves">Grottes</label><br>
+                <!-- Ajoute d'autres contrôles au besoin -->
+            </aside>
+            <section class="map-container">
+                <object type="image/svg+xml" data="political.svg" class="map">
+                    Ton navigateur ne supporte pas les SVG.
                 </object>
-            </div>
+            </section>
         </div>
     </main>
     <footer>
-        <p>&copy; 2025 Serafins - Univers d'Elkant</p>
+        <p>&copy; 2025 Elkant | Créé par Serafins. Tous droits réservés.</p>
     </footer>
-    <script src="map.js"></script>
 </body>
 </html>
