@@ -1,0 +1,15 @@
+#navigation {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+#introduction {
+    text-align: center;
+    margin-bottom: 2rem;
+}
