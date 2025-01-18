@@ -1,87 +1,58 @@
-/* Global styles pour garder la cohérence */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
-/* Header */
-header {
-    background: #333;
-    color: #fff;
-    padding: 10px;
-    position: fixed;
-    top: 0;
+/* Mise en page spécifique à la page de la carte */
+.map-container {
+    display: flex;
+    flex-direction: row; /* Barre latérale à gauche et carte à droite */
+    height: calc(100vh - 160px); /* Hauteur totale moins header et footer */
     width: 100%;
-    z-index: 1000;
-}
-
-header .menu {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-header nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-header nav ul li {
-    margin: 0 10px;
-}
-
-header nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-/* Container principal */
-.container {
-    display: flex;
-    margin-top: 70px; /* Décalage pour ne pas cacher par le header */
-    height: calc(100vh - 70px);
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 /* Barre latérale */
 .sidebar {
-    width: 250px;
-    background: #f4f4f4;
+    width: 25%; /* Largeur relative de la barre latérale */
+    max-width: 300px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
     padding: 20px;
-    overflow-y: auto;
-    border-right: 2px solid #ccc;
+    margin-right: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre légère */
+    color: #fff;
 }
 
 .sidebar h2 {
-    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
-.sidebar button, .sidebar input {
+.sidebar button {
     width: 100%;
-    margin: 5px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-    background: #fff;
-    cursor: pointer;
+    margin: 10px 0;
 }
 
-.sidebar button:hover {
-    background: #ddd;
-}
-
-/* Carte */
-.map-container {
-    flex: 1;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #e0e0e0;
-}
-
+/* Carte interactive */
 .map {
-    max-width: 90%;
-    max-height: 90%;
-    border: 2px solid #ccc;
+    flex: 1; /* Prend tout l'espace restant */
+    background-color: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre légère */
+    display: flex;
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    overflow: hidden; /* Coupe le débordement */
+}
+
+/* Responsive pour petits écrans */
+@media (max-width: 768px) {
+    .map-container {
+        flex-direction: column; /* Empile la barre latérale et la carte */
+        height: auto; /* Adapte la hauteur automatiquement */
+    }
+
+    .sidebar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 }
