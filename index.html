@@ -13,38 +13,52 @@
             height: 100vh;
             background-color: #f4f4f4;
             font-family: Arial, sans-serif;
-            overflow: hidden; /* Empêche de scroller le body lui-même */
+            overflow: hidden; /* Empêche le défilement global */
         }
 
         .svg-container {
-            width: 100vw; /* Largeur de l'écran */
-            height: 100vh; /* Hauteur de l'écran */
-            overflow: auto; /* Permet le défilement si nécessaire */
-            border: 1px solid #ccc;
+            width: 100vw; /* Occupe tout l'écran */
+            height: 100vh; /* Occupe tout l'écran */
+            overflow: auto; /* Active les barres de défilement */
             position: relative;
+            cursor: grab; /* Indique que l'utilisateur peut cliquer-glisser */
             background-color: #ffffff;
+        }
+
+        .svg-container:active {
+            cursor: grabbing; /* Change le curseur lors du clic-glisser */
+        }
+
+        .svg-container object {
+            display: block; /* Évite les marges par défaut des objets */
+            margin: auto; /* Centrage initial */
+            width: 150%; /* Agrandit le SVG initialement */
+            height: 150%; /* Agrandit le SVG initialement */
         }
     </style>
 </head>
 <body>
-    <div class="svg-container">
-        <object type="image/svg+xml" data="political.svg">Ton navigateur ne supporte pas les SVG</object>
+    <div class="svg-container" id="svg-container">
+        <object type="image/svg+xml" data="political.svg" id="svg-object">Ton navigateur ne supporte pas les SVG</object>
     </div>
+
     <script>
-        const container = document.querySelector('.svg-container');
+        // Ajout du déplacement au clic-glisser
+        const container = document.getElementById('svg-container');
         let isDragging = false;
         let startX, startY, scrollLeft, scrollTop;
-    
+
         container.addEventListener('mousedown', (e) => {
             isDragging = true;
+            container.classList.add('active');
             startX = e.pageX - container.offsetLeft;
             startY = e.pageY - container.offsetTop;
             scrollLeft = container.scrollLeft;
             scrollTop = container.scrollTop;
         });
-    
+
         container.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
+            if (!isDragging) return; // Si pas de clic, ne rien faire
             e.preventDefault();
             const x = e.pageX - container.offsetLeft;
             const y = e.pageY - container.offsetTop;
@@ -53,15 +67,16 @@
             container.scrollLeft = scrollLeft - walkX;
             container.scrollTop = scrollTop - walkY;
         });
-    
+
         container.addEventListener('mouseup', () => {
             isDragging = false;
+            container.classList.remove('active');
         });
-    
+
         container.addEventListener('mouseleave', () => {
             isDragging = false;
+            container.classList.remove('active');
         });
     </script>
-    
 </body>
 </html>
