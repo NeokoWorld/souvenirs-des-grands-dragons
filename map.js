@@ -69,11 +69,10 @@ document.addEventListener("DOMContentLoaded", () => {
             // Met à jour l'infobulle
             infoBox.innerHTML = `
                 <h3>${labelData.name}</h3>
-                <p><strong>Type :</strong> ${labelData.type}</p>
                 <p>${labelData.description}</p>
                 ${labelData.province ? `<p><strong>Province :</strong> ${labelData.province}</p>` : ''}
                 ${labelData.government ? `<p><strong>Gouvernement :</strong> ${labelData.government}</p>` : ''}
-                ${labelData.ruler ? `<p><strong>Roi :</strong> ${labelData.ruler}</p>` : ''}
+                ${labelData.ruler ? `<p><strong>Dirigeant :</strong> ${labelData.ruler}</p>` : ''}
                 ${additionalInfo} <!-- Ajout du lien "Plus d'info" si c'est un état -->
             `;
             infoBox.style.display = 'block'; // Afficher l'info-bulle
