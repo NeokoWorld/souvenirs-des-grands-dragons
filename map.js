@@ -1,60 +1,72 @@
 document.addEventListener("DOMContentLoaded", () => {
     const mapIframe = document.querySelector(".map-container iframe");
-    const infoBox = document.querySelector(".info-box"); // Infobulle
+    const infoBox = document.querySelector(".info-box");
 
-    // Charger les données du JSON
-    fetch('data/labels.json')
-        .then(response => response.json())
-        .then(data => {
-            // Ajoute un événement de changement de vue
-            const buttons = document.querySelectorAll(".sidebar button");
-
-            buttons.forEach(button => {
-                button.addEventListener("click", () => {
-                    const newSrc = button.getAttribute("data-src");
-                    if (newSrc) {
-                        mapIframe.src = newSrc; // Met à jour la source de l'iframe
-                    }
-                });
-            });
-
-            // Ajouter les événements aux labels de la carte
-            mapIframe.addEventListener("load", () => {
-                const svgDoc = mapIframe.contentDocument || mapIframe.contentWindow.document;
-                const labels = svgDoc.querySelectorAll("#labels text");
-
-                labels.forEach(label => {
-                    label.addEventListener("click", (event) => {
-                        const labelId = label.getAttribute("id");
-                        const labelName = label.textContent.trim();
-                        console.log(`Label cliqué : ID=${labelId}, Nom=${labelName}`);
-
-                        // Chercher le label correspondant dans les données JSON
-                        const labelData = findLabelData(labelId, data.labels);
-
-                        // Mettre à jour l'info-bulle avec les données du label
-                        updateInfoBox(labelData, infoBox);
-                    });
-                });
-            });
-        })
-        .catch(error => {
-            console.error("Erreur lors du chargement du fichier JSON:", error);
-        });
-
-    // Fonction pour trouver les données associées à un label
-    function findLabelData(labelId, labels) {
-        // Recherche dans les villes, villages, états et lieux spéciaux
-        for (const category of ['cities', 'towns', 'states', 'special']) {
-            const labelData = labels[category].find(item => item.id === labelId);
-            if (labelData) {
-                return labelData;
-            }
-        }
-        return null; // Si aucun label n'est trouvé
+    // Fonction pour changer de vue dans l'iframe
+    function changeView(src) {
+        mapIframe.src = src;
     }
 
-    // Fonction pour mettre à jour l'infobulle avec les données du label
+    // Ajoute un écouteur pour chaque bouton dans la barre latérale
+    document.querySelectorAll(".sidebar button").forEach(button => {
+        button.addEventListener("click", () => {
+            const newSrc = button.getAttribute("data-src");
+            if (newSrc) {
+                changeView(newSrc); // Change la source de l'iframe
+            }
+        });
+    });
+
+    // Fonction pour gérer le clic sur les labels
+    function handleLabelClick(label) {
+        const labelId = label.getAttribute("id");
+        const labelName = label.textContent.trim();
+
+        console.log(`Label cliqué : ID=${labelId}, Nom=${labelName}`);
+        
+        // Chercher et mettre à jour l'info-bulle
+        const labelData = findLabelData(labelId);
+        updateInfoBox(labelData, infoBox);
+    }
+
+    // Charge le contenu de l'iframe et ajoute des événements aux labels
+    mapIframe.addEventListener("load", () => {
+        const svgDoc = mapIframe.contentDocument || mapIframe.contentWindow.document;
+        const labels = svgDoc.querySelectorAll("#labels text");
+
+        // Ajoute l'événement de clic à chaque label
+        labels.forEach(label => {
+            label.addEventListener("click", () => handleLabelClick(label));
+        });
+    });
+
+    // Fonction pour charger les données JSON depuis le fichier labels.json
+    async function loadLabelData() {
+        try {
+            const response = await fetch('data/labels.json');
+            const data = await response.json();
+            return data.labels; // Retourne les données des labels
+        } catch (error) {
+            console.error("Erreur lors du chargement du fichier JSON : ", error);
+            return {};
+        }
+    }
+
+    // Recherche des données dans le fichier JSON des labels
+    async function findLabelData(labelId) {
+        const labelsData = await loadLabelData(); // Charge les données dynamiquement
+
+        // Recherche dans toutes les catégories de labels
+        for (const category in labelsData) {
+            const found = labelsData[category].find(item => item.id === labelId);
+            if (found) {
+                return found;
+            }
+        }
+        return null; // Retourne null si aucune correspondance n'est trouvée
+    }
+
+    // Met à jour l'info-bulle avec les données du label
     function updateInfoBox(labelData, infoBox) {
         if (labelData) {
             infoBox.innerHTML = `
