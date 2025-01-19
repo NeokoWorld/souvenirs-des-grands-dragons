@@ -6,6 +6,18 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch('data/labels.json')
         .then(response => response.json())
         .then(data => {
+            // Ajoute un événement de changement de vue
+            const buttons = document.querySelectorAll(".sidebar button");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    const newSrc = button.getAttribute("data-src");
+                    if (newSrc) {
+                        mapIframe.src = newSrc; // Met à jour la source de l'iframe
+                    }
+                });
+            });
+
             // Ajouter les événements aux labels de la carte
             mapIframe.addEventListener("load", () => {
                 const svgDoc = mapIframe.contentDocument || mapIframe.contentWindow.document;
@@ -16,10 +28,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         const labelId = label.getAttribute("id");
                         const labelName = label.textContent.trim();
                         console.log(`Label cliqué : ID=${labelId}, Nom=${labelName}`);
-                        
+
                         // Chercher le label correspondant dans les données JSON
                         const labelData = findLabelData(labelId, data.labels);
-                        
+
                         // Mettre à jour l'info-bulle avec les données du label
                         updateInfoBox(labelData, infoBox);
                     });
@@ -47,11 +59,10 @@ document.addEventListener("DOMContentLoaded", () => {
         if (labelData) {
             infoBox.innerHTML = `
                 <h3>${labelData.name}</h3>
-                <p><strong>Type :</strong> ${labelData.type}</p>
                 <p>${labelData.description}</p>
                 ${labelData.province ? `<p><strong>Province :</strong> ${labelData.province}</p>` : ''}
                 ${labelData.government ? `<p><strong>Gouvernement :</strong> ${labelData.government}</p>` : ''}
-                ${labelData.ruler ? `<p><strong>Roi :</strong> ${labelData.ruler}</p>` : ''}
+                ${labelData.ruler ? `<p><strong>Dirigeant :</strong> ${labelData.ruler}</p>` : ''}
             `;
             infoBox.style.display = 'block'; // Afficher l'info-bulle
         } else {
