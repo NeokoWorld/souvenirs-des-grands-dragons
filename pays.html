@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pays - Elkant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pays.css">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <h1>Elkant</h1>
+            <button class="menu-toggle" aria-label="Menu">
+                &#9776; <!-- Icône du menu burger -->
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="map.html">Carte</a></li>
+                    <li><a href="pays.html">Nations</a></li>
+                    <li><a href="cultures.html">Cultures</a></li>
+                    <li><a href="races.html">Races</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-container">
+            <h2>Les Nations d'Elkant</h2>
+            <div class="tabs">
+                <ul class="tab-links">
+                    <!-- Liste des pays (les tabs) -->
+                    <li class="tab-link active" data-tab="tsivitia">Royaume de Tsivitia</li>
+                    <li class="tab-link" data-tab="vitimia">Royaume de Vitimia</li>
+                    <li class="tab-link" data-tab="akevron">Royaume Divin d'Akekaron</li>
+                    <li class="tab-link" data-tab="elronklan">Empire d'Elronklan</li>
+                    <li class="tab-link" data-tab="zeklanlantais">Empire Zeklanlantais</li>
+                    <li class="tab-link" data-tab="kemitimaa">Tsarat de Kemitimaa</li>
+                    <li class="tab-link" data-tab="faltfokroise">République Faltfokroise</li>
+                    <li class="tab-link" data-tab="rolarlant">Rolarlant</li>
+                    <li class="tab-link" data-tab="ivitat">Ivitat Commonwealth</li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- Contenu des pays, chaque pays dans une section -->
+                    <div class="tab-pane active" id="tsivitia">
+                        <h3>Royaume de Tsivitia</h3>
+                        <p><strong>Description:</strong> Tsivitia est un pays Ilat dont la capitale est Brattuut. Beaucoup de ruines se trouvent sur le territoire Tsivit en raison d'une ancienne guerre avec les Zeklanlantais.</p>
+                        <p><strong>Gouvernement:</strong> Monarchie absolue</p>
+                        <p><strong>Dirigeant:</strong> ...</p>
+                    </div>
+                    <div class="tab-pane" id="vitimia">
+                        <h3>Royaume de Vitimia</h3>
+                        <p><strong>Description:</strong> C'est royaume riche en ressources naturelles, notamment en termes de nourritures. La capitale Vitimienne est Malen.</p>
+                        <p><strong>Gouvernement:</strong> Monarchie Constitutionnelle</p>
+                        <p><strong>Dirigeant:</strong> ...</p>
+                    </div>
+                    <div class="tab-pane" id="akevron">
+                        <h3>Royaume Divin d'Akekaron</h3>
+                        <p><strong>Description:</strong> Les croisades au nom des dieux Akron sont ce qui a toujours défini Akekaron. L'enclave de Biyon, au sein d'Elronklan, a toujours été une source de conflit.</p>
+                        <p><strong>Gouvernement:</strong> Théocratie</p>
+                        <p><strong>Dirigeant:</strong> ...</p>
+                    </div>
+                    <div class="tab-pane" id="elronklan">
+                        <h3>Empire d'Elronklan</h3>
+                        <p><strong>Description:</strong> Elronklan est principalement connue pour ses forêts majestueuses abritant des arbres rares qui ne poussent qu'ici.</p>
+                        <p><strong>Gouvernement:</strong> Empire</p>
+                        <p><strong>Dirigeant:</strong> ...</p>
+                    </div>
+                    <div class="tab-pane" id="zeklanlantais">
+                        <h3>Empire Zeklanlantais</h3>
+                        <p><strong>Description:</strong> Il fut un temps où Zeklanlant était particulièrement agressif et expansionniste. Depuis, les autres pays ont tendance à ne pas faire pleinement confiance aux Zeklanlantais.</p>
+                        <p><strong>Gouvernement:</strong> Empire</p>
+                        <p><strong>Dirigeant:</strong> ...</p>
+                    </div>
+                    <div class="tab-pane" id="kemitimaa">
+                        <h3>Tsarat de Kemitimaa</h3>
+                        <p><strong>Description:</strong> Le Tsarat est sûrement le pays le plus distinct. Il n'est pas seulement sur un autre continent, mais possède aussi une culture qui lui est propre, souvent source de difficultés relationnelles.</p>
+                        <p><strong>Gouvernement:</strong> Tsarat</p>
+                        <p><strong>Dirigeant:</strong> ...</p>
+                    </div>
+                    <div class="tab-pane" id="faltfokroise">
+                        <h3>République Faltfokroise</h3>
+                        <p><strong>Description:</strong> Faltfokr est un des rares pays mettant le pouvoir dans le peuple. Elle est en tension avec l'autocratie voisine, Rolarlant.</p>
+                        <p><strong>Gouvernement:</strong> Chancellerie</p>
+                        <p><strong>Dirigeant:</strong> ...</p>
+                    </div>
+                    <div class="tab-pane" id="rolarlant">
+                        <h3>Rolarlant</h3>
+                        <p><strong>Description:</strong> Rolarlant est une dictature en conflit avec Faltfokr, bien qu'aucun acte militaire n'ait été entrepris jusqu'à maintenant.</p>
+                        <p><strong>Gouvernement:</strong> Dictature</p>
+                        <p><strong>Dirigeant:</strong> ...</p>
+                    </div>
+                    <div class="tab-pane" id="ivitat">
+                        <h3>Ivitat Commonwealth</h3>
+                        <p><strong>Description:</strong> Ivitat est une confédération composée du Royaume d'Iler et du Grand Duché de Puluit. L'Iler gère le militaire et la politique, tandis que Puluit représente la puissance économique.</p>
+                        <p><strong>Gouvernement:</strong> Confédération</p>
+                        <p><strong>Dirigeant:</strong> ...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Elkant | Créé par Serafins. Tous droits réservés.</p>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="pays.js"></script>
+</body>
+</html>

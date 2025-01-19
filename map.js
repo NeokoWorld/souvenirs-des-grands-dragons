@@ -57,12 +57,24 @@ document.addEventListener("DOMContentLoaded", () => {
     // Fonction pour mettre à jour l'infobulle avec les données du label
     function updateInfoBox(labelData, infoBox) {
         if (labelData) {
+            let additionalInfo = '';
+    
+            // Si le label est un état (type "state"), on ajoute un lien "Plus d'info"
+            if (labelData.type === 'state') {
+                additionalInfo = `
+                    <p><a href="pays.html?country=${encodeURIComponent(labelData.name)}" class="more-info">Plus d'info</a></p>
+                `;
+            }
+    
+            // Met à jour l'infobulle
             infoBox.innerHTML = `
                 <h3>${labelData.name}</h3>
+                <p><strong>Type :</strong> ${labelData.type}</p>
                 <p>${labelData.description}</p>
                 ${labelData.province ? `<p><strong>Province :</strong> ${labelData.province}</p>` : ''}
                 ${labelData.government ? `<p><strong>Gouvernement :</strong> ${labelData.government}</p>` : ''}
-                ${labelData.ruler ? `<p><strong>Dirigeant :</strong> ${labelData.ruler}</p>` : ''}
+                ${labelData.ruler ? `<p><strong>Roi :</strong> ${labelData.ruler}</p>` : ''}
+                ${additionalInfo} <!-- Ajout du lien "Plus d'info" si c'est un état -->
             `;
             infoBox.style.display = 'block'; // Afficher l'info-bulle
         } else {
@@ -70,4 +82,5 @@ document.addEventListener("DOMContentLoaded", () => {
             infoBox.style.display = 'block';
         }
     }
+    
 });
