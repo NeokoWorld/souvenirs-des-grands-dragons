@@ -109,3 +109,18 @@ footer {
     text-align: center;
     color: #333;
 }
+
+.tooltip {
+    width: 150px; /* Fixez la largeur */
+    height: 50px; /* Fixez la hauteur */
+    overflow: hidden; /* Cache tout dépassement de contenu */
+    white-space: nowrap; /* Empêche le retour à la ligne */
+    text-overflow: ellipsis; /* Ajoute des "..." si le texte dépasse */
+    background-color: rgba(0, 0, 0, 0.8); /* Exemple de fond */
+    color: white; /* Couleur du texte */
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center; /* Centre le texte */
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+  }
+  
