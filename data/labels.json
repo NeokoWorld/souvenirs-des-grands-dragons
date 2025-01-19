@@ -1,0 +1,363 @@
+{
+  "labels": {
+    "cities": [
+      {
+        "id": "burgLabel1",
+        "name": "Malen",
+        "type": "city",
+        "x": 1631.94,
+        "y": 1288.96,
+        "description": "Une grande ville connue pour son commerce florissant.",
+        "province": "Conté de Lakat"
+      },
+      {
+        "id": "burgLabel2",
+        "name": "Claussaaq",
+        "type": "city",
+        "x": 1547.42,
+        "y": 565.47,
+        "description": "Une ville fluviale stratégique.",
+        "province": "Diaconat d'Avikia"
+      },
+      {
+        "id": "burgLabel3",
+        "name": "Aupiren",
+        "type": "city",
+        "x": 173.52,
+        "y": 615.25,
+        "description": "Capitale culturelle de la région.",
+        "province": "Département de Meria"
+      },
+      {
+        "id": "burgLabel4",
+        "name": "Brattuut",
+        "type": "city",
+        "x": 1324.44,
+        "y": 1176.25,
+        "description": "Un centre administratif important.",
+        "province": "Sénéchaussée de Narsoq"
+      },
+      {
+        "id": "burgLabel10",
+        "name": "Gjerogen",
+        "type": "city",
+        "x": 543.92,
+        "y": 741.36,
+        "description": "Connue pour son architecture unique.",
+        "province": "Province de Vastad"
+      },
+      {
+        "id": "burgLabel14",
+        "name": "Tzor",
+        "type": "city",
+        "x": 844.62,
+        "y": 556.46,
+        "description": "Ville célèbre pour ses festivals.",
+        "province": "Région de Tindia"
+      },
+      {
+        "id": "burgLabel17",
+        "name": "Amiut",
+        "type": "city",
+        "x": 626.93,
+        "y": 1396.56,
+        "description": "Une centre politique important pour le Sud.",
+        "province": "Canton d'Ajat"
+      },
+      {
+        "id": "burgLabel19",
+        "name": "Vilas",
+        "type": "city",
+        "x": 1322.34,
+        "y": 236.59,
+        "description": "Capitale culturelle et historique Kemite.",
+        "province": "Gouvernat de Hulia"
+      },
+      {
+        "id": "burgLabel20",
+        "name": "Qertu",
+        "type": "city",
+        "x": 975.76,
+        "y": 1670.61,
+        "description": "Réputée pour ses centres historiques militaires.",
+        "province": "Royaume d'Iler"
+      }
+    ],
+    "towns": [
+        {
+          "id": "burgLabel5",
+          "name": "Stolar",
+          "type": "town",
+          "x": 832.16,
+          "y": 1202.53,
+          "description": "Un village pittoresque.",
+          "province": "Sénéchaussée de Gimsia"
+        },
+        {
+          "id": "burgLabel6",
+          "name": "Gimstad",
+          "type": "town",
+          "x": 352.31,
+          "y": 541.6,
+          "description": "Un village de pêcheurs.",
+          "province": "Département de Flost"
+        },
+        {
+          "id": "burgLabel7",
+          "name": "Sermiut",
+          "type": "town",
+          "x": 1055.01,
+          "y": 1355.13,
+          "description": "Connu pour ses artisans talentueux.",
+          "province": "Sénéchaussée de Nutit"
+        },
+        {
+          "id": "burgLabel8",
+          "name": "Qapajik",
+          "type": "town",
+          "x": 1352.17,
+          "y": 455.34,
+          "description": "Un village maritime affluent.",
+          "province": "Diaconat de Kitania"
+        },
+        {
+          "id": "burgLabel9",
+          "name": "Sameq",
+          "type": "town",
+          "x": 1779.95,
+          "y": 672.53,
+          "description": "Connue pour ses vergers.",
+          "province": "Conté de Hungit"
+        },
+        {
+          "id": "burgLabel11",
+          "name": "Kivin",
+          "type": "town",
+          "x": 65.37,
+          "y": 886.86,
+          "description": "Un village agricole.",
+          "province": "Département de Sisun"
+        },
+        {
+          "id": "burgLabel12",
+          "name": "Morvika",
+          "type": "town",
+          "x": 455.3,
+          "y": 1044.53,
+          "description": "Un village minier important.",
+          "province": "Province de Stornes"
+        },
+        {
+          "id": "burgLabel13",
+          "name": "Skrover",
+          "type": "town",
+          "x": 357.22,
+          "y": 439.76,
+          "description": "Réputée pour ses forêts environnantes.",
+          "province": "Département de Kaber"
+        },
+        {
+          "id": "burgLabel15",
+          "name": "Igaaq",
+          "type": "town",
+          "x": 1833.65,
+          "y": 916.89,
+          "description": "Un centre commercial important.",
+          "province": "Conté de Kilat"
+        },
+        {
+          "id": "burgLabel16",
+          "name": "Qertoq",
+          "type": "town",
+          "x": 1518.34,
+          "y": 1023.35,
+          "description": "Un lieu stratégique pour les échanges commerciaux.",
+          "province": "Conté de Kuusuk"
+        },
+        {
+          "id": "burgLabel18",
+          "name": "Stolardet",
+          "type": "town",
+          "x": 567.05,
+          "y": 536.1,
+          "description": "Un pole d'échange majeur",
+          "province": "Région de Solant."
+        },
+        {
+          "id": "burgLabel21",
+          "name": "Raurey",
+          "type": "town",
+          "x": 715.26,
+          "y": 978.24,
+          "description": "Une ville minière et seul ville où l'on trouve du Ferconite",
+          "province": "Province de Skonvog"
+        },
+        {
+          "id": "burgLabel22",
+          "name": "Hnifstad",
+          "type": "town",
+          "x": 143.96,
+          "y": 1115.39,
+          "description": "Ville pincipalement militaire.",
+          "province": "Canton de Trelant"
+        },
+        {
+          "id": "burgLabel23",
+          "name": "Kelah",
+          "type": "town",
+          "x": 1001.84,
+          "y": 1114.26,
+          "description": "Une ville au centre du commerce Tsivit",
+          "province": "Sénéchaussée de Yav"
+        },
+        {
+          "id": "burgLabel24",
+          "name": "Uvsaup",
+          "type": "town",
+          "x": 1508.53,
+          "y": 1659.44,
+          "description": "Capitale économique de la confédération.",
+          "province": "Grand Duché de Puluit"
+        },
+        {
+          "id": "burgLabel25",
+          "name": "Sitak",
+          "type": "town",
+          "x": 1848.59,
+          "y": 1547.22,
+          "description": "Un village isolé sur une ile paradisiaque",
+          "province": "Ile d'Ilakia"
+        },
+        {
+          "id": "burgLabel26",
+          "name": "Keysa",
+          "type": "town",
+          "x": 1120.86,
+          "y": 583.72,
+          "description": "Une ville dans une enclave créant des tensions",
+          "province": "Diaconat de Biyon"
+        },
+        {
+          "id": "burgLabel27",
+          "name": "Rapu",
+          "type": "town",
+          "x": 1107.26,
+          "y": 81.61,
+          "description": "Village sur piloti au bord du lac gelé de Tuula",
+          "province": "Gouvernat de Porvemat"
+        },
+        {
+          "id": "burgLabel28",
+          "name": "Iliaa",
+          "type": "town",
+          "x": 1125.59,
+          "y": 419.41,
+          "description": "Ville principale pour atteindre Kemitimaa",
+          "province": "Région d'Ileq"
+        },
+        {
+          "id": "burgLabel29",
+          "name": "Vilo",
+          "type": "town",
+          "x": 824.14,
+          "y": 892.47,
+          "description": "Un village de pêcheurs.",
+          "province": "Gouvernat de Siloki"
+      }
+    ],
+    "states": [
+      {
+        "id": "stateLabel1",
+        "name": "Royaume de Tsivitia",
+        "type": "state",
+        "description": "Tsivitia est un pays Ilat dont la capitale est Brattuut. Beaucoups de ruines se trouvent sur le territoire Tsivit dû à une ancienne guerre avec les Zeklanlantais.",
+        "government": "Monarchie absolue",
+        "ruler": "..."
+      },
+      {
+        "id": "stateLabel4",
+        "name": "Royaume de Vitimia",
+        "type": "state",
+        "description": "C'est royaume riche en ressources naturelles, notamment en terme de nourritures. La capitale Vitimienne est Malen.",
+        "government": "Monarchie Constitutionnelle",
+        "ruler": "..."
+      },
+      {
+        "id": "stateLabel9",
+        "name": "Royaume Divin d'Akekaron",
+        "type": "state",
+        "description": "Les croisades au nom des dieux Akron est ce qui a toujours définit Akekaron. L'enclave de Biyon au sein d'Elronklan a toujours été une source de conflit.",
+        "government": "Théocratie",
+        "ruler": "..."
+      },
+      {
+        "id": "stateLabel3",
+        "name": "Empire d'Elronklan",
+        "type": "state",
+        "description": "Elronklan est principalement connue pour ses forêts majestueuses habritant parfois des arbres rares qui ne poussent qu'ici..",
+        "government": "Empire",
+        "ruler": "..."
+      },
+      {
+        "id": "stateLabel5",
+        "name": "Empire Zeklanlantais",
+        "type": "state",
+        "description": "Il fut un temps où Zeklanlant était particulièrement agressif et expensionniste. Depuis, les autres pays ont une tendance à ne pas faire pleinement confiance aux Zeklanlantais.",
+        "government": "Empire",
+        "ruler": "..."
+      },
+      {
+        "id": "stateLabel6",
+        "name": "Tsarat de Kemitimaa",
+        "type": "state",
+        "description": "Le Tsarat est surement le pays le plus distinct. N'étant déjà pas sur le même continent en plus d'avoir une culture qui lui est propre, il y a souvent beaucoup de difficultés relationnelles.",
+        "government": "Tsarat",
+        "ruler": "..."
+      },
+      {
+        "id": "stateLabel7",
+        "name": "République Faltfokroise",
+        "type": "state",
+        "description": "Faltfokr est un des rares pays mettant le pouvoir dans le peuple, et le fait qu'elle soit située à coté d'une autocratie, Rolarlant, créer beaucoups de tensions car les deux s'accusent mutuellement d'être une abération.",
+        "government": "Chancellerie",
+        "ruler": "..."
+      },
+      {
+        "id": "stateLabel8",
+        "name": "Rolarlant",
+        "type": "state",
+        "description": "Rolarlant est une dictature qui passe beaucoup de temps à se chamailler avec Faltfokr, mais aucun acte militaire n'a été fait pour l'instant.",
+        "government": "Dictature",
+        "ruler": "..."
+      },
+      {
+        "id": "stateLabel10",
+        "name": "Ivitat Commonwealth",
+        "type": "state",
+        "description": "Ivitat est en réalité composé du Royaume d'Iler et du Grand Duché de Puluit. Les deux pays se sont donc rassembler dans une union personnelle où, par un meilleurs accès à la sphère politique, le Roi d'Iler gère le militaire et le politique d'Ivitat. Puluit représente plutôt la puissance économique.",
+        "government": "Confédération",
+        "ruler": "..."
+      }
+    ],
+    "special": [
+      {
+        "id": "label1",
+        "name": "Chaine de Ravitelmat",
+        "type": "special",
+        "description": "La Chaine de Ravitelmat renferme la Vallée Kamura en son centre. Une île flottant nommée le Mont Kamura au dessus de la vallée semble signifier que la vallée n'existait pas autrefois."
+      },
+      {
+        "id": "label2",
+        "name": "Golf des Vittsia",
+        "type": "special",
+        "description": "Le golf est une zone neutre pour les races pouvant aller sous l'eau. Il est possible d'y vivre pour ne plus s'affilier à un pays."
+      },
+      {
+        "id": "label3",
+        "name": "Glacier Eternel de Kaulanen",
+        "type": "special",
+        "description": "Kaulanen est le nom d'une divinité Kemite. Le glacier aurait été fait par celle ci pour protéger Kemitimaa de ce qui peut se trouver de l'autre coté. Il est si haut que personne n'a jamais réussit à passer outre. De plus les Kemites progègent activement le glacier pour que personne ne tente d'aller au dela."
+      }
+    ]
+  }
+}
