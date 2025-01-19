@@ -1,0 +1,38 @@
+/* Styles pour les onglets */
+.tabs {
+  margin-top: 20px;
+}
+
+.tab-links {
+  list-style: none;
+  display: flex;
+  gap: 2px;
+  padding: 0;
+}
+
+.tab-link {
+  cursor: pointer;
+  padding: 1rem;
+  background-color: #3e3e56;
+  color: white;
+  border-radius: 5px 5px 0 0;
+  transition: background-color 0.3s;
+}
+
+.tab-link.active {
+  background-color: #49499c;
+}
+
+.tab-content {
+  padding: 20px;
+  background-color: #bebebe38;
+  border-radius: 0 0 5px 5px;
+}
+
+.tab-pane {
+  display: none;
+}
+
+.tab-pane.active {
+  display: block;
+}

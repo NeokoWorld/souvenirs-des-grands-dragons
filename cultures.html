@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultures - Elkant</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cultures.css">
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <h1>Elkant</h1>
+            <button class="menu-toggle" aria-label="Menu">
+                &#9776;
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="map.html">Carte</a></li>
+                    <li><a href="pays.html">Nations</a></li>
+                    <li><a href="cultures.html" class="active">Cultures</a></li>
+                    <li><a href="races.html">Races</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="main-container">
+            <h2>Les Cultures d'Elkant</h2>
+            <div class="tabs">
+                <ul class="tab-links">
+                    <!-- Liste des cultures -->
+                    <li class="tab-link active" data-tab="kemi">Kemi</li>
+                    <li class="tab-link" data-tab="rolar">Rolar</li>
+                    <li class="tab-link" data-tab="ilat">Ilat</li>
+                    <li class="tab-link" data-tab="akron">Akron</li>
+                </ul>
+
+                <div class="tab-content">
+                    <!-- Contenu des cultures -->
+                    <div class="tab-pane active" id="kemi">
+                        <h3>Culture Kemi</h3>
+                        <p><strong>Style de vie :</strong> Les Kemite ont un mode de vie influencé par les cultures slaves. Vivant uniquement sur le continent nord, leur culture est intimement liée à leur environnement unique.</p>
+                        <p><strong>Sonorités :</strong> Influences finnoises.</p>
+                        <p><strong>Pays associés :</strong> <em>Kemitimaa</em>.</p>
+                    </div>
+                    <div class="tab-pane" id="rolar">
+                        <h3>Culture Rolar</h3>
+                        <p><strong>Style de vie :</strong> Les Rolar, habitués à la vie en montagne, forment une culture robuste, centrée sur les hautes terres et les forêts épaisses de leur région.</p>
+                        <p><strong>Sonorités :</strong> Influences nordiques.</p>
+                        <p><strong>Pays associés :</strong> <em>Zeklanlant, Faltfokr, Elronklan, Rolarlant</em>.</p>
+                    </div>
+                    <div class="tab-pane" id="ilat">
+                        <h3>Culture Ilat</h3>
+                        <p><strong>Style de vie :</strong> Les Ilat vivent majoritairement près des côtes et tirent leur subsistance des mers et des rivières. Leur lien avec l'eau est primordial.</p>
+                        <p><strong>Sonorités :</strong> Influences inuites.</p>
+                        <p><strong>Pays associés :</strong> <em>Vitimia, Ivitat</em>.</p>
+                    </div>
+                    <div class="tab-pane" id="akron">
+                        <h3>Culture Akron</h3>
+                        <p><strong>Style de vie :</strong> Les Akron, chasseurs semi-nomades devenus sédentaires, gardent un fort attachement à la chasse et à la vie en pleine nature.</p>
+                        <p><strong>Sonorités :</strong> Influences levantines (hébreu, turc, yiddish).</p>
+                        <p><strong>Pays associés :</strong> <em>Tsivitia, Akekaron</em>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Elkant | Créé par Serafins. Tous droits réservés.</p>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="cultures.js"></script>
+</body>
+</html>
