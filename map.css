@@ -112,7 +112,6 @@ footer {
 
 .tooltip {
     width: 150px; /* Fixez la largeur */
-    height: 50px; /* Fixez la hauteur */
     overflow: hidden; /* Cache tout dépassement de contenu */
     white-space: nowrap; /* Empêche le retour à la ligne */
     text-overflow: ellipsis; /* Ajoute des "..." si le texte dépasse */
