@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        svgElement.style.transformOrigin = "center center"; // Définit l'origine du zoom par défaut
+        svgElement.style.transformOrigin = "center center"; // Définit l'origine du zoom
 
         // Ajoute un gestionnaire d'événement pour la molette
         svgDoc.addEventListener(
@@ -109,16 +109,6 @@ document.addEventListener("DOMContentLoaded", () => {
             (event) => {
                 event.preventDefault(); // Désactive le comportement par défaut
 
-                // Calculer la position de la souris dans l'iframe
-                const mouseX = event.clientX;
-                const mouseY = event.clientY;
-
-                // Convertir la position de la souris en coordonnées relatives au SVG
-                const svgRect = svgElement.getBoundingClientRect();
-                const mouseXInSvg = mouseX - svgRect.left;
-                const mouseYInSvg = mouseY - svgRect.top;
-
-                // Calcul du zoom avant ou arrière
                 if (event.deltaY < 0) {
                     // Zoom avant
                     currentScale = Math.min(currentScale + scaleStep, maxScale);
@@ -127,28 +117,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     currentScale = Math.max(currentScale - scaleStep, minScale);
                 }
 
-                // Appliquer l'échelle avec un ajustement basé sur la souris
+                // Applique l'échelle
                 svgElement.style.transform = `scale(${currentScale})`;
 
-                // Calculer le décalage nécessaire pour centrer le zoom sur la souris
-                const offsetX = (mouseXInSvg * scaleStep) * currentScale;
-                const offsetY = (mouseYInSvg * scaleStep) * currentScale;
-
-                // Appliquer un décalage pour faire en sorte que le zoom soit centré sur la souris
-                svgElement.style.transformOrigin = `${mouseXInSvg}px ${mouseYInSvg}px`;
-
-                // Assurer que le SVG ne dépasse pas les bords de l'iframe
-                const svgWidth = svgElement.getBoundingClientRect().width * currentScale;
-                const svgHeight = svgElement.getBoundingClientRect().height * currentScale;
-
-                // Vérifier que le SVG ne dépasse pas l'iframe après dézoom
-                if (svgWidth < mapIframe.clientWidth && svgHeight < mapIframe.clientHeight) {
-                    svgElement.style.width = "100%"; // Ajuster la largeur à 100% de l'iframe
-                    svgElement.style.height = "100%"; // Ajuster la hauteur à 100% de l'iframe
-                } else {
-                    svgElement.style.width = `${svgWidth}px`;
-                    svgElement.style.height = `${svgHeight}px`;
-                }
+                // Aligne le SVG aux bords de l'iframe après chaque zoom
+                svgElement.style.width = `${100 * currentScale}%`;
+                svgElement.style.height = `${100 * currentScale}%`;
+                svgElement.style.marginLeft = `${(1 - currentScale) * 50}%`;  // Centrer horizontalement
+                svgElement.style.marginTop = `${(1 - currentScale) * 50}%`;    // Centrer verticalement
             },
             { passive: false } // Définit explicitement le gestionnaire comme non-passive
         );
@@ -156,5 +132,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Gestionnaire de zoom/dézoom activé.");
 });
-
-
