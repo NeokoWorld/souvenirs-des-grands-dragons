@@ -87,12 +87,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const mapIframe = document.querySelector(".map-container iframe");
-    let currentScale = 1; // L'échelle initiale
-    const scaleStep = 0.1; // Pas de zoom
-    const minScale = 0.5; // Zoom minimum
-    const maxScale = 3; // Zoom maximum
+    let currentScale = 1; // Échelle initiale
+    const scaleStep = 0.1; // Pas d'augmentation/diminution du zoom
+    const minScale = 0.5; // Échelle minimale
+    const maxScale = 3; // Échelle maximale
 
-    // Lorsque l'iframe a fini de charger
     mapIframe.addEventListener("load", () => {
         const svgDoc = mapIframe.contentDocument || mapIframe.contentWindow.document;
         const svgElement = svgDoc.querySelector("svg");
@@ -102,31 +101,28 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Définit l'origine du zoom au centre
-        svgElement.style.transformOrigin = "center center";
+        svgElement.style.transformOrigin = "center center"; // Définit l'origine du zoom
 
-        // Ajout de l'événement de molette
-        svgDoc.addEventListener("wheel", (event) => {
-            event.preventDefault(); // Désactive le comportement par défaut (scroll)
+        // Ajoute un gestionnaire d'événement pour la molette
+        svgDoc.addEventListener(
+            "wheel",
+            (event) => {
+                event.preventDefault(); // Désactive le comportement par défaut
 
-            // Détermine le sens du zoom
-            if (event.deltaY < 0) {
-                currentScale = Math.min(currentScale + scaleStep, maxScale);
-            } else {
-                currentScale = Math.max(currentScale - scaleStep, minScale);
-            }
+                if (event.deltaY < 0) {
+                    // Zoom avant
+                    currentScale = Math.min(currentScale + scaleStep, maxScale);
+                } else {
+                    // Zoom arrière
+                    currentScale = Math.max(currentScale - scaleStep, minScale);
+                }
 
-            // Applique la transformation de zoom
-            svgElement.style.transform = `scale(${currentScale})`;
-
-            // Applique les tailles pour garantir que le SVG s'ajuste bien
-            svgElement.style.width = `${100 * currentScale}%`;
-            svgElement.style.height = `${100 * currentScale}%`;
-            svgElement.style.left = `${(1 - currentScale) * 50}%`;  // Centrer horizontalement
-            svgElement.style.top = `${(1 - currentScale) * 50}%`;    // Centrer verticalement
-        }, { passive: false }); // Assure que l'événement n'est pas traité comme passif
+                // Applique l'échelle
+                svgElement.style.transform = `scale(${currentScale})`;
+            },
+            { passive: false } // Définit explicitement le gestionnaire comme non-passive
+        );
     });
 
-    console.log("Gestion du zoom/dézoom activée.");
+    console.log("Gestionnaire de zoom/dézoom activé.");
 });
-
