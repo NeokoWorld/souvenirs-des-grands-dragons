@@ -141,9 +141,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 const svgWidth = svgElement.getBoundingClientRect().width * currentScale;
                 const svgHeight = svgElement.getBoundingClientRect().height * currentScale;
 
-                // Ajuster la taille du SVG si nécessaire pour éviter le "vide" entre le SVG et l'iframe
-                svgElement.style.width = `${svgWidth}px`;
-                svgElement.style.height = `${svgHeight}px`;
+                // Vérifier que le SVG ne dépasse pas l'iframe après dézoom
+                if (svgWidth < mapIframe.clientWidth && svgHeight < mapIframe.clientHeight) {
+                    svgElement.style.width = "100%"; // Ajuster la largeur à 100% de l'iframe
+                    svgElement.style.height = "100%"; // Ajuster la hauteur à 100% de l'iframe
+                } else {
+                    svgElement.style.width = `${svgWidth}px`;
+                    svgElement.style.height = `${svgHeight}px`;
+                }
             },
             { passive: false } // Définit explicitement le gestionnaire comme non-passive
         );
@@ -151,4 +156,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     console.log("Gestionnaire de zoom/dézoom activé.");
 });
+
 
