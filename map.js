@@ -92,7 +92,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const minScale = 0.5; // Échelle minimale
     const maxScale = 3; // Échelle maximale
 
-    // Ajoute un gestionnaire d'événements pour la molette sur l'iframe
     mapIframe.addEventListener("load", () => {
         const svgDoc = mapIframe.contentDocument || mapIframe.contentWindow.document;
         const svgElement = svgDoc.querySelector("svg");
@@ -104,20 +103,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
         svgElement.style.transformOrigin = "center center"; // Définit l'origine du zoom
 
-        svgDoc.addEventListener("wheel", (event) => {
-            event.preventDefault(); // Empêche le comportement par défaut de la molette
+        // Ajoute un gestionnaire d'événement pour la molette
+        svgDoc.addEventListener(
+            "wheel",
+            (event) => {
+                event.preventDefault(); // Désactive le comportement par défaut
 
-            if (event.deltaY < 0) {
-                // Zoom avant
-                currentScale = Math.min(currentScale + scaleStep, maxScale);
-            } else {
-                // Zoom arrière
-                currentScale = Math.max(currentScale - scaleStep, minScale);
-            }
+                if (event.deltaY < 0) {
+                    // Zoom avant
+                    currentScale = Math.min(currentScale + scaleStep, maxScale);
+                } else {
+                    // Zoom arrière
+                    currentScale = Math.max(currentScale - scaleStep, minScale);
+                }
 
-            // Applique l'échelle
-            svgElement.style.transform = `scale(${currentScale})`;
-        });
+                // Applique l'échelle
+                svgElement.style.transform = `scale(${currentScale})`;
+            },
+            { passive: false } // Définit explicitement le gestionnaire comme non-passive
+        );
     });
 
     console.log("Gestionnaire de zoom/dézoom activé.");
