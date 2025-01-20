@@ -83,3 +83,50 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const mapIframe = document.querySelector(".map-container iframe");
+    let currentScale = 1; // Échelle initiale de la carte
+    const scaleStep = 0.1; // Pas d'incrément pour le zoom
+    const minScale = 0.5; // Zoom minimum (50%)
+    const maxScale = 3; // Zoom maximum (300%)
+
+    // Fonction pour appliquer le zoom
+    function applyZoom(scale) {
+        const svgDoc = mapIframe.contentDocument || mapIframe.contentWindow.document;
+        const svgElement = svgDoc.querySelector("svg");
+        if (svgElement) {
+            svgElement.style.transform = `scale(${scale})`;
+            svgElement.style.transformOrigin = "center center"; // Origine du zoom
+        }
+    }
+
+    // Gestion de la molette pour zoomer/dézoomer
+    mapIframe.addEventListener("load", () => {
+        const svgDoc = mapIframe.contentDocument || mapIframe.contentWindow.document;
+
+        svgDoc.addEventListener("wheel", (event) => {
+            event.preventDefault();
+            if (event.deltaY < 0) {
+                // Zoom avant
+                currentScale = Math.min(currentScale + scaleStep, maxScale);
+            } else {
+                // Zoom arrière
+                currentScale = Math.max(currentScale - scaleStep, minScale);
+            }
+            applyZoom(currentScale);
+        });
+    });
+
+    // Optionnel : Gestion des touches "+" et "-" du clavier
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "+") {
+            currentScale = Math.min(currentScale + scaleStep, maxScale);
+            applyZoom(currentScale);
+        } else if (event.key === "-") {
+            currentScale = Math.max(currentScale - scaleStep, minScale);
+            applyZoom(currentScale);
+        }
+    });
+});
