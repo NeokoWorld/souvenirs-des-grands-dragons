@@ -87,27 +87,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const mapIframe = document.querySelector(".map-container iframe");
-    let currentScale = 1; // Échelle initiale de la carte
-    const scaleStep = 0.1; // Pas d'incrément pour le zoom
-    const minScale = 0.5; // Zoom minimum (50%)
-    const maxScale = 3; // Zoom maximum (300%)
+    let currentScale = 1; // Échelle initiale
+    const scaleStep = 0.1; // Pas d'augmentation/diminution du zoom
+    const minScale = 0.5; // Échelle minimale
+    const maxScale = 3; // Échelle maximale
 
-    // Fonction pour appliquer le zoom
-    function applyZoom(scale) {
-        const svgDoc = mapIframe.contentDocument || mapIframe.contentWindow.document;
-        const svgElement = svgDoc.querySelector("svg");
-        if (svgElement) {
-            svgElement.style.transform = `scale(${scale})`;
-            svgElement.style.transformOrigin = "center center"; // Origine du zoom
-        }
-    }
-
-    // Gestion de la molette pour zoomer/dézoomer
+    // Ajoute un gestionnaire d'événements pour la molette sur l'iframe
     mapIframe.addEventListener("load", () => {
         const svgDoc = mapIframe.contentDocument || mapIframe.contentWindow.document;
+        const svgElement = svgDoc.querySelector("svg");
+
+        if (!svgElement) {
+            console.error("Aucun élément SVG trouvé dans l'iframe.");
+            return;
+        }
+
+        svgElement.style.transformOrigin = "center center"; // Définit l'origine du zoom
 
         svgDoc.addEventListener("wheel", (event) => {
-            event.preventDefault(); // Empêche le déplacement de la carte
+            event.preventDefault(); // Empêche le comportement par défaut de la molette
 
             if (event.deltaY < 0) {
                 // Zoom avant
@@ -116,18 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Zoom arrière
                 currentScale = Math.max(currentScale - scaleStep, minScale);
             }
-            applyZoom(currentScale);
+
+            // Applique l'échelle
+            svgElement.style.transform = `scale(${currentScale})`;
         });
     });
 
-    // Optionnel : Gestion des touches "+" et "-" du clavier
-    document.addEventListener("keydown", (event) => {
-        if (event.key === "+") {
-            currentScale = Math.min(currentScale + scaleStep, maxScale);
-            applyZoom(currentScale);
-        } else if (event.key === "-") {
-            currentScale = Math.max(currentScale - scaleStep, minScale);
-            applyZoom(currentScale);
-        }
-    });
+    console.log("Gestionnaire de zoom/dézoom activé.");
 });
