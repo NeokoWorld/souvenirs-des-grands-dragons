@@ -107,8 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const svgDoc = mapIframe.contentDocument || mapIframe.contentWindow.document;
 
         svgDoc.addEventListener("wheel", (event) => {
-            event.preventDefault(); // Bloque le comportement par défaut (déplacement)
-            event.stopPropagation(); // Empêche la propagation de l'événement
+            event.preventDefault(); // Empêche le déplacement de la carte
 
             if (event.deltaY < 0) {
                 // Zoom avant
