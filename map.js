@@ -107,7 +107,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const svgDoc = mapIframe.contentDocument || mapIframe.contentWindow.document;
 
         svgDoc.addEventListener("wheel", (event) => {
-            event.preventDefault();
+            event.preventDefault(); // Bloque le comportement par défaut (déplacement)
+            event.stopPropagation(); // Empêche la propagation de l'événement
+
             if (event.deltaY < 0) {
                 // Zoom avant
                 currentScale = Math.min(currentScale + scaleStep, maxScale);
