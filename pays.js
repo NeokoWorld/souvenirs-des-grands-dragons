@@ -18,3 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+document.querySelectorAll('.button').forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        if (content && content.classList.contains('content')) {
+            content.classList.toggle('hidden');
+        }
+    });
+});

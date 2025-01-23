@@ -1,6 +1,8 @@
 /* Styles pour les onglets */
 .tabs {
     margin-top: 20px;
+    flex: auto;
+    display: block;
 }
 
 .tab-links {
@@ -8,6 +10,9 @@
     display: flex;
     gap: 2px;
     padding: 0;
+    width: 100%;
+    flex: auto;
+    flex-wrap: wrap; /* Permet aux onglets de se réorganiser */
 }
 
 .tab-link {
@@ -17,12 +22,19 @@
     color: white;
     border-radius: 5px 5px 0 0;
     transition: background-color 0.3s;
+    width: auto; /* Laissez les onglets ajuster leur taille */
+    text-align: center;
+    flex-grow: 1; /* Permet à chaque onglet de grandir uniformément */
+    flex-basis: 20%; /* Utilisez une largeur de base */
+    min-width: 100px; /* Largeur minimale pour les onglets */
 }
 
+/* Onglet actif */
 .tab-link.active {
     background-color: #49499c;
 }
 
+/* Contenu des onglets */
 .tab-content {
     padding: 20px;
     background-color: #bebebe38;
@@ -35,4 +47,54 @@
 
 .tab-pane.active {
     display: block;
+}
+
+/* Ajustement des onglets sur petits écrans */
+@media (max-width: 768px) {
+    .tab-links {
+        flex-direction: column; /* Passe à une disposition verticale sur petits écrans */
+    }
+
+    .tab-link {
+        width: 100%; /* Chaque onglet occupe toute la largeur */
+        padding: 0.8rem; /* Taille d'onglet un peu plus petite pour mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Sur les très petits écrans, on peut réduire encore plus la taille des onglets */
+    .tab-link {
+        padding: 0.6rem; /* Plus petit padding */
+    }
+
+    .tab-content {
+        padding: 15px; /* Moins de padding pour les petits écrans */
+    }
+}
+
+strong {
+    color: #cfbc9a;
+    padding-top: 2px;
+}
+
+.centrer {
+    text-align: center;
+}
+
+h3 {
+    width: 150px;
+    margin: auto;
+}
+
+.content {
+    text-align: justify;
+}
+
+.content.hidden {
+    display: none;
+}
+
+.content p {
+    padding-top: 5px;
+    padding-bottom: 3px;
 }

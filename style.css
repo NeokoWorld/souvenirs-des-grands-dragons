@@ -157,14 +157,14 @@ body {
     background-size: cover;
     background-attachment: fixed;
     background-position: center;
-    color: #fff;
+    color: #ffefd3;
 }
 
 .main-container {
     background-color: rgba(0, 0, 0, 0.6); /* Fond noir semi-transparent */
     padding: 20px;
     border-radius: 10px; /* Coins arrondis */
-    max-width: 80%;
+    width: 80%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombre légère */
 }
 
